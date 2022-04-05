@@ -23,6 +23,7 @@ Auth::routes(['verify' => true]);
 
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->middleware('verified')->name('home');
+Route::view('/applications', 'applications')->middleware('verified')->name('applications');
 
 Route::post('/feedback/add', [App\Http\Controllers\FeedbackController::class, 'addApplication'])->name('application.add');
 Route::post('/feedback/delete', [App\Http\Controllers\FeedbackController::class, 'deleteApplication'])->name('application.delete');

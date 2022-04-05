@@ -20,6 +20,8 @@ return new class extends Migration
             $table->string('phone_number');
             $table->string('company');
             $table->string('application_title');
+            $table->string('file_path');
+            $table->string('file_name');
             $table->longText('message');
             $table->timestamps();
         });

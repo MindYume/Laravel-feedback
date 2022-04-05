@@ -17,6 +17,8 @@ class FeedbackController extends Controller
             'message' => 'required'
         ]);
 
+       
+
         $application = new Feedback;
         $application->user_id = Auth::user()->id;
         $application->name = $request->name;
@@ -24,9 +26,18 @@ class FeedbackController extends Controller
         $application->company = $request->company;
         $application->application_title = $request->application_title;
         $application->message = $request->message;
+        
+        if(isset($request->file)) {
+                $application->file_path = "storage/".$request->file('file')->store('uploads', 'public');
+                $application->file_name = $request->file('file')->getClientOriginalName();
+        } else {
+            $application->file_path = "No file";
+            $application->file_name = "No file";
+        }
+
         $application->save();
 
-        return redirect(route('home'));
+        return redirect(route('applications'));
     }
 
     public function deleteApplication(Request $request) {
@@ -35,8 +46,11 @@ class FeedbackController extends Controller
         ]);
 
         $application = Feedback::find($request->application_id);
+        if($application->file_path != "No file") {
+            unlink(public_path($application->file_path));
+        }
         $application->delete();
 
-        return redirect(route('home'));
+        return redirect(route('applications'));
     }
 }
