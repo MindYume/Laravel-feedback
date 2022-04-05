@@ -18,14 +18,14 @@ git clone https://github.com/MindYume/Laravel-feedback.git
 ![](images/domain2.png)
 ![](images/domain3.png)
 
-### 2 Переименуйте .env.example в .env
+### 5 Переименуйте .env.example в .env
 
-### 2 Сгенерируйте ключ приложения
+### 6 Сгенерируйте ключ приложения
 ```bash
 php artisan key:generate
 ```
 
-### 2 Введите следующие данные в .env:
+### 7 Введите следующие данные в .env:
     DB_DATABASE=feedback_laravel - название базы данный
     DB_USERNAME - логин базы данный
     DB_PASSWORD - пароль базы данных
@@ -37,13 +37,13 @@ php artisan key:generate
 ![](images/env1.png)
 ![](images/env2.png)
 
-### 2 Создайте базу данный с названием feedback_laravel
+### 8 Создайте базу данных с названием feedback_laravel
 
-### 5 Создайте базу данных из миграций. 
+### 9 Создайте базу данных из миграций. 
 Для этого запуствите консоль через Open Server, зайдите в папку с проектом и запустите следующую команду
 ```bash 
 php artisan migrate
 ```
 ![](images/migration.png)
-### 6 Теперь вы пожете запустить Open Server и в любом браузере ввести название домена, котрое вы дали проекту, и посмотреть на результат.
+### 10 Теперь вы пожете запустить Open Server и в любом браузере ввести название домена, котрое вы дали проекту, и посмотреть на результат.
 ![](images/interface3.png)
