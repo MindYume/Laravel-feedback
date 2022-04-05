@@ -1,5 +1,6 @@
 # ToDoList на Laravel
-![](images/interface.png)
+![](images/interface1.png)
+![](images/interface2.png)
 
 ## Устнаовка
 ### 1 Скачайте и установите Open Server
@@ -7,8 +8,9 @@ https://ospanel.io/
 
 ### 2 Зайдипе в папку \openserver\domains и скачайте проект
 ```bash
-git clone https://github.com/MindYume/Laravel-ToDoList.git
+git clone https://github.com/MindYume/Laravel-feedback.git
 ```
+
 ### 3 Запустите Open Server, и зайдите в настройки
 ![](images/settings.png)
 ### 4 В настройках зайдите в раздел "Домены" и добавтье домен с любым именем
@@ -16,11 +18,32 @@ git clone https://github.com/MindYume/Laravel-ToDoList.git
 ![](images/domain2.png)
 ![](images/domain3.png)
 
+### 2 Переименуйте .env.example в .env
+
+### 2 Сгенерируйте ключ приложения
+```bash
+php artisan key:generate
+```
+
+### 2 Введите следующие данные в .env:
+    DB_DATABASE=feedback_laravel - название базы данный
+    DB_USERNAME - логин базы данный
+    DB_PASSWORD - пароль базы данных
+    MAIL_HOST - адрес s mtp сервера
+    MAIL_PORT - порт mtp сервера
+    MAIL_USERNAME - логин от почты для отправления писем
+    MAIL_PASSWORD - пароль от почты
+    MAIL_FROM_ADDRESS="hello@example.com" - почтовый адрес отправителя
+![](images/env1.png)
+![](images/env2.png)
+
+### 2 Создайте базу данный с названием feedback_laravel
+
 ### 5 Создайте базу данных из миграций. 
-Для этого запуствите консоль через Open Server, зайдите в папку с проектам и запустите следующую команду
+Для этого запуствите консоль через Open Server, зайдите в папку с проектом и запустите следующую команду
 ```bash 
 php artisan migrate
 ```
 ![](images/migration.png)
 ### 6 Теперь вы пожете запустить Open Server и в любом браузере ввести название домена, котрое вы дали проекту, и посмотреть на результат.
-![](images/domain4.png)
+![](images/interface3.png)
