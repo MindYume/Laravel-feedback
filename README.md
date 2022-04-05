@@ -33,6 +33,7 @@ php artisan key:generate
     MAIL_PORT - порт mtp сервера
     MAIL_USERNAME - логин от почты для отправления писем
     MAIL_PASSWORD - пароль от почты
+    MAIL_ENCRYPTION=lts
     MAIL_FROM_ADDRESS="hello@example.com" - почтовый адрес отправителя
 ![](images/env1.png)
 ![](images/env2.png)
