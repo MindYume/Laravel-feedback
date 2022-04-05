@@ -30,7 +30,6 @@ class AppServiceProvider extends ServiceProvider
     {
         VerifyEmail::toMailUsing(function ($notifiable) {
         
-            // Генерация ссылки для подтверждения письма
             $verifyUrl = URL::temporarySignedRoute(
                 'verification.verify', Carbon::now()->addMinutes(60), [
                     'id' => $notifiable->getKey(),
@@ -38,7 +37,6 @@ class AppServiceProvider extends ServiceProvider
                 ]
             );
             
-            // Переменные, которые будут доступны в шаблоне письма
             $vars = [
                 'url' => $verifyUrl
             ];

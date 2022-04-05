@@ -24,17 +24,13 @@ Auth::routes(['verify' => true]);
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->middleware('verified')->name('home');
 
+Route::post('/feedback/add', [App\Http\Controllers\FeedbackController::class, 'addApplication'])->name('application.add');
+Route::post('/feedback/delete', [App\Http\Controllers\FeedbackController::class, 'deleteApplication'])->name('application.delete');
+
 
 Route::get('/email/verify', function () {
     return view('auth.verify');
 })->middleware('auth')->name('verification.notice');
-
-
-/* Route::get('/email/verify/{id}/{hash}', function (EmailVerificationRequest $request) {
-    $request->fulfill();
- 
-    return redirect('/home');
-})->middleware(['auth', 'signed'])->name('verification.verify'); */
 
 
 Route::post('/email/verification-notification', function (EmailVerificationRequest $request) {
@@ -42,19 +38,3 @@ Route::post('/email/verification-notification', function (EmailVerificationReque
  
     return back()->with('message', 'Verification link sent!');
 })->middleware(['auth', 'throttle:6,1'])->name('verification.resend');
-
-/* Route::get('/email/verify/{id}/{hash}', function (EmailVerificationRequest $request) {
-    $request->fulfill();
- 
-    return redirect('/home');
-})->middleware(['auth', 'signed'])->name('verification.verify'); */
-
-//Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->middleware('verified')->name('home');
-
-/* Auth::routes();
-
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-
-Auth::routes();
-
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home'); */

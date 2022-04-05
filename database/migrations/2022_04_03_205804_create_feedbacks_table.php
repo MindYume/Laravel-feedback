@@ -16,7 +16,11 @@ return new class extends Migration
         Schema::create('feedback', function (Blueprint $table) {
             $table->id();
             $table->integer('user_id')->unsigned();
-            $table->string('msg_name');
+            $table->string('name');
+            $table->string('phone_number');
+            $table->string('company');
+            $table->string('application_title');
+            $table->longText('message');
             $table->timestamps();
         });
     }
