@@ -36,12 +36,8 @@ class AppServiceProvider extends ServiceProvider
                     'hash' => sha1($notifiable->getEmailForVerification())
                 ]
             );
-            
-            $vars = [
-                'url' => $verifyUrl
-            ];
     
-            return (new MailMessage)->subject($verifyUrl);
+            return (new MailMessage)->subject("Подтверждение учётной записи")->line("Перейдите ссылке для подтверждения учётной записи: ".$verifyUrl);
         });
     }
 }

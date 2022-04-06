@@ -14,9 +14,11 @@ use Illuminate\Foundation\Auth\EmailVerificationRequest;
 |
 */
 
-Route::get('/', function () {
+/* Route::get('/', function () {
     return view('welcome');
-});
+}); */
+
+Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->middleware('verified');
 
 
 Auth::routes(['verify' => true]);
